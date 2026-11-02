@@ -29,6 +29,42 @@ const translations = {
     wordOfDay: 'PALABRA DEL DÍA',
     sayWithConfidence: 'Habla con confianza',
     exploreWords: 'Explorar palabras'
+  },
+  fa: {
+    dailyLesson: 'درس روزانه شما',
+    gettingToKnow: 'آشنایی با یکدیگر',
+    greetingsTitle: 'سلام و معرفی',
+    greetingsDescription: 'یاد بگیر سلام کنی، خودت را معرفی کنی و نام دیگران را بپرسی.',
+    weeklyFocus: 'تمرکز هفتگی',
+    buildBasics: 'پایه‌های خود را بساز',
+    focusDescription: 'داری پایه‌ای محکم می‌سازی. کمی تمرین روزانه تفاوت بزرگی ایجاد می‌کند.',
+    moreLessons: 'درس‌های بیشتر برای مبتدی‌ها',
+    learnEveryday: 'انگلیسی کاربردی برای هر روز یاد بگیر',
+    wordOfDay: 'کلمه روز',
+    sayWithConfidence: 'با اعتمادبه‌نفس صحبت کن',
+    exploreWords: 'کشف کلمه‌ها',
+    lessonNumbers: 'اعداد و زمان',
+    lessonNumbersDescription: 'شمردن، گفتن ساعت و گفتن شماره تلفن را تمرین کن.',
+    lessonFood: 'غذا و نوشیدنی',
+    lessonFoodDescription: 'یک میان‌وعده سفارش بده و درباره غذای مورد علاقه‌ات بگو.',
+    lessonRoutine: 'برنامه روزانه من',
+    lessonRoutineDescription: 'درباره صبح، کار و عصر خود صحبت کن.',
+    lessonDirections: 'مکان‌ها و مسیرها',
+    lessonDirectionsDescription: 'آدرس بپرس و مسیرهای ساده را بفهم.',
+    lessonFamily: 'خانواده و دوستان',
+    lessonFamilyDescription: 'افراد مهم زندگی‌ات را توصیف و خانواده‌ات را معرفی کن.',
+    lessonWeather: 'آب‌وهوا و لباس',
+    lessonWeatherDescription: 'درباره روزهای آفتابی صحبت کن و لباس مناسب انتخاب کن.',
+    lessonShopping: 'خرید کردن',
+    lessonShoppingDescription: 'قیمت و اندازه را بپرس و مؤدبانه پرداخت کن.',
+    lessonWork: 'کار و مدرسه',
+    lessonWorkDescription: 'درباره شغل یا کلاس خود صحبت کن.',
+    lessonHealth: 'سلامت و احساسات',
+    lessonHealthDescription: 'احساست را بیان کن و کمک ساده بخواه.',
+    lessonTravel: 'عبارت‌های سفر',
+    lessonTravelDescription: 'در فرودگاه، هتل و ایستگاه از عبارت‌های دوستانه استفاده کن.',
+    lessonReview: 'مرور و گفت‌وگوی واقعی',
+    lessonReviewDescription: 'کلمه‌های جدیدت را در یک گفت‌وگوی کوتاه روزمره به کار ببر.'
   }
 };
 
@@ -39,10 +75,11 @@ function updateLanguage(language) {
     if (copy[key]) element.textContent = copy[key];
   });
   document.querySelectorAll('.vocab-card').forEach((card) => {
-    const translation = card.dataset[`translation${language === 'tr' ? 'Tr' : 'Es'}`];
+    const translation = card.dataset[`translation${language === 'tr' ? 'Tr' : language === 'es' ? 'Es' : 'Fa'}`];
     if (translation) card.querySelector('.translation').textContent = translation;
   });
   document.documentElement.lang = language;
+  document.documentElement.dir = language === 'fa' ? 'rtl' : 'ltr';
   localStorage.setItem('lingobloom-language', language);
 }
 
