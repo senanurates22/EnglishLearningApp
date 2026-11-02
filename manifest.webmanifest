@@ -1,0 +1,21 @@
+{
+  "name": "LingoBloom · Learn English",
+  "short_name": "LingoBloom",
+  "description": "A friendly beginner English learning app.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fffaf4",
+  "theme_color": "#7265e8",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
