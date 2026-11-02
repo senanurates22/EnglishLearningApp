@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="LingoBloom — a friendly beginner English learning dashboard." />
+    <title>LingoBloom · Learn English</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="#home" aria-label="LingoBloom home">
+          <span class="brand-mark">✦</span>
+          <span>Lingo<span>Bloom</span></span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a class="active" href="#home">Home</a>
+          <a href="#lesson">Lessons</a>
+          <a href="#practice">Practice</a>
+          <a href="#conversation">Conversation</a>
+        </nav>
+        <div class="top-actions">
+          <button class="icon-button" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+          <div class="avatar" aria-label="Learner profile">AM</div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero section" id="home">
+          <div class="hero-copy">
+            <p class="eyebrow">MONDAY, JUNE 24 <span class="dot"></span> DAY 7</p>
+            <h1>Small steps.<br /><em>Big progress.</em></h1>
+            <p class="hero-text">Good morning, Alex! Keep your streak growing with a few minutes of English today.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#lesson">Start today’s lesson <span>→</span></a>
+              <button class="button button-quiet" id="greetButton">Hear a greeting <span>◖</span></button>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="sun"></div>
+            <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+            <div class="hill hill-back"></div><div class="hill hill-front"></div>
+            <div class="flower flower-one">✿</div><div class="flower flower-two">✿</div>
+            <div class="speech-bubble">You’ve got this!</div>
+          </div>
+        </section>
+
+        <section class="stats-grid" aria-label="Your learning stats">
+          <article class="stat-card streak-card">
+            <div class="stat-icon">🔥</div><div><span class="stat-label">Current streak</span><strong>7 <small>days</small></strong></div>
+            <div class="mini-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i class="today"></i></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon purple">◒</div><div><span class="stat-label">Words learned</span><strong>124</strong></div>
+            <div class="progress-ring" aria-label="62 percent of weekly goal"><span>62%</span></div>
+          </article>
+          <article class="stat-card">
+            <div class="stat-icon blue">◷</div><div><span class="stat-label">Learning time</span><strong>18 <small>min</small></strong></div>
+            <span class="trend">+12%</span>
+          </article>
+        </section>
+
+        <div class="content-grid section">
+          <section class="panel lesson-panel" id="lesson">
+            <div class="panel-heading">
+              <div><p class="eyebrow">YOUR DAILY LESSON</p><h2>Getting to know you</h2></div>
+              <span class="lesson-count">1 of 3</span>
+            </div>
+            <div class="lesson-progress"><span></span></div>
+            <div class="lesson-body">
+              <div class="lesson-illustration" aria-hidden="true"><span>👋</span><i>✦</i></div>
+              <div class="lesson-details">
+                <h3>Greetings & introductions</h3>
+                <p>Learn how to say hello, introduce yourself, and ask someone’s name.</p>
+                <div class="lesson-meta"><span>◷ 5 min</span><span>◉ Beginner</span></div>
+                <a class="button button-dark" href="#vocabulary">Continue lesson <span>→</span></a>
+              </div>
+            </div>
+          </section>
+
+          <aside class="panel focus-panel">
+            <div class="panel-heading"><div><p class="eyebrow">WEEKLY FOCUS</p><h2>Build your basics</h2></div><span class="target-icon">◎</span></div>
+            <p class="focus-copy">You’re building a strong foundation. A little practice every day makes a big difference.</p>
+            <div class="focus-meter"><span></span></div>
+            <div class="focus-footer"><strong>4 / 6 lessons</strong><span>Keep going!</span></div>
+          </aside>
+        </div>
+
+        <section class="section" id="vocabulary">
+          <div class="section-heading"><div><p class="eyebrow">WORD OF THE DAY</p><h2>Say it with confidence</h2></div><button class="text-button" id="shuffleWords">Explore words <span>→</span></button></div>
+          <div class="vocab-grid">
+            <article class="vocab-card coral"><span class="word-type">GREETING</span><h3>Hello</h3><p>/həˈloʊ/</p><button class="play-word" data-speech="Hello!">▶</button><span class="translation">Merhaba</span></article>
+            <article class="vocab-card lavender"><span class="word-type">INTRODUCTION</span><h3>Nice to meet you</h3><p>/naɪs tə miːt juː/</p><button class="play-word" data-speech="Nice to meet you!">▶</button><span class="translation">Tanıştığıma memnun oldum</span></article>
+            <article class="vocab-card mint"><span class="word-type">QUESTION</span><h3>What’s your name?</h3><p>/wʌts jɔːr neɪm/</p><button class="play-word" data-speech="What's your name?">▶</button><span class="translation">Adın ne?</span></article>
+          </div>
+        </section>
+
+        <section class="practice-row section" id="practice">
+          <div class="practice-copy"><p class="eyebrow">QUICK PRACTICE</p><h2>Can you pick the right answer?</h2><p>Test your memory with one quick question.</p><div class="quiz-progress"><span></span></div><span class="question-count">Question 1 of 3</span></div>
+          <div class="quiz-card" id="quizCard"><p class="quiz-prompt">How do you say <strong>“Merhaba”</strong> in English?</p><div class="quiz-options"><button data-correct="true">Hello</button><button>Goodbye</button><button>Thank you</button></div><p class="quiz-feedback" aria-live="polite"></p></div>
+        </section>
+
+        <section class="conversation-section section" id="conversation">
+          <div class="conversation-copy"><p class="eyebrow">PRACTICE OUT LOUD</p><h2>Let’s have a conversation</h2><p>Follow the little dialogue and speak each line out loud. You’re not alone — I’ll guide you.</p><a class="button button-primary" href="#conversationCard">Start conversation <span>→</span></a></div>
+          <div class="conversation-card" id="conversationCard">
+            <div class="conversation-top"><span class="online-dot"></span><strong>Alex’s first chat</strong><span class="progress-pill">1 / 4</span></div>
+            <div class="chat"><div class="message bot">Hi there! What’s your name?</div><button class="message user-message speak-message" data-speech="Hi! My name is Alex.">Hi! My name is Alex. <span>🔊</span></button><div class="message bot next-message hidden">Nice to meet you, Alex!</div></div>
+            <button class="button button-light" id="nextConversation">Say your line <span>↗</span></button>
+          </div>
+        </section>
+      </main>
+      <footer><span>Made for curious learners</span><span>Keep blooming ✦</span></footer>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
