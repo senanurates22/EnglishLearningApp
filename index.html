@@ -21,6 +21,7 @@
           <a href="#conversation">Conversation</a>
         </nav>
         <div class="top-actions">
+          <label class="language-picker" for="languageSelect"><span aria-hidden="true">文</span><select id="languageSelect" aria-label="Choose translation language"><option value="tr">Türkçe</option><option value="es">Español</option></select></label>
           <button class="icon-button" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">🔊</button>
           <div class="avatar" aria-label="Learner profile">AM</div>
         </div>
@@ -64,15 +65,15 @@
         <div class="content-grid section">
           <section class="panel lesson-panel" id="lesson">
             <div class="panel-heading">
-              <div><p class="eyebrow">YOUR DAILY LESSON</p><h2>Getting to know you</h2></div>
+              <div><p class="eyebrow" data-i18n="dailyLesson">YOUR DAILY LESSON</p><h2 data-i18n="gettingToKnow">Getting to know you</h2></div>
               <span class="lesson-count">1 of 3</span>
             </div>
             <div class="lesson-progress"><span></span></div>
             <div class="lesson-body">
               <div class="lesson-illustration" aria-hidden="true"><span>👋</span><i>✦</i></div>
               <div class="lesson-details">
-                <h3>Greetings & introductions</h3>
-                <p>Learn how to say hello, introduce yourself, and ask someone’s name.</p>
+                <h3 data-i18n="greetingsTitle">Greetings & introductions</h3>
+                <p data-i18n="greetingsDescription">Learn how to say hello, introduce yourself, and ask someone’s name.</p>
                 <div class="lesson-meta"><span>◷ 5 min</span><span>◉ Beginner</span></div>
                 <a class="button button-dark" href="#vocabulary">Continue lesson <span>→</span></a>
               </div>
@@ -80,19 +81,32 @@
           </section>
 
           <aside class="panel focus-panel">
-            <div class="panel-heading"><div><p class="eyebrow">WEEKLY FOCUS</p><h2>Build your basics</h2></div><span class="target-icon">◎</span></div>
-            <p class="focus-copy">You’re building a strong foundation. A little practice every day makes a big difference.</p>
+            <div class="panel-heading"><div><p class="eyebrow" data-i18n="weeklyFocus">WEEKLY FOCUS</p><h2 data-i18n="buildBasics">Build your basics</h2></div><span class="target-icon">◎</span></div>
+            <p class="focus-copy" data-i18n="focusDescription">You’re building a strong foundation. A little practice every day makes a big difference.</p>
             <div class="focus-meter"><span></span></div>
             <div class="focus-footer"><strong>4 / 6 lessons</strong><span>Keep going!</span></div>
           </aside>
         </div>
 
+        <section class="section curriculum-section" id="curriculum">
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="moreLessons">MORE BEGINNER LESSONS</p><h2 data-i18n="learnEveryday">Learn useful English for every day</h2></div><span class="lesson-count">6 lessons</span></div>
+          <div class="curriculum-grid">
+            <article class="curriculum-card"><span class="curriculum-emoji">🔢</span><div><span class="word-type">02</span><h3>Numbers & time</h3><p>Count, tell the time, and share your phone number.</p></div><span class="lesson-tag">5 min</span></article>
+            <article class="curriculum-card"><span class="curriculum-emoji">🍎</span><div><span class="word-type">03</span><h3>Food & drinks</h3><p>Order a snack and say what you like to eat.</p></div><span class="lesson-tag">6 min</span></article>
+            <article class="curriculum-card"><span class="curriculum-emoji">🏠</span><div><span class="word-type">04</span><h3>My daily routine</h3><p>Talk about your morning, work, and evening.</p></div><span class="lesson-tag">7 min</span></article>
+            <article class="curriculum-card"><span class="curriculum-emoji">🧭</span><div><span class="word-type">05</span><h3>Places & directions</h3><p>Ask where places are and understand simple directions.</p></div><span class="lesson-tag">6 min</span></article>
+          </div>
+        </section>
+
         <section class="section" id="vocabulary">
-          <div class="section-heading"><div><p class="eyebrow">WORD OF THE DAY</p><h2>Say it with confidence</h2></div><button class="text-button" id="shuffleWords">Explore words <span>→</span></button></div>
+          <div class="section-heading"><div><p class="eyebrow" data-i18n="wordOfDay">WORD OF THE DAY</p><h2 data-i18n="sayWithConfidence">Say it with confidence</h2></div><button class="text-button" id="shuffleWords" data-i18n="exploreWords">Explore words <span>→</span></button></div>
           <div class="vocab-grid">
-            <article class="vocab-card coral"><span class="word-type">GREETING</span><h3>Hello</h3><p>/həˈloʊ/</p><button class="play-word" data-speech="Hello!">▶</button><span class="translation">Merhaba</span></article>
-            <article class="vocab-card lavender"><span class="word-type">INTRODUCTION</span><h3>Nice to meet you</h3><p>/naɪs tə miːt juː/</p><button class="play-word" data-speech="Nice to meet you!">▶</button><span class="translation">Tanıştığıma memnun oldum</span></article>
-            <article class="vocab-card mint"><span class="word-type">QUESTION</span><h3>What’s your name?</h3><p>/wʌts jɔːr neɪm/</p><button class="play-word" data-speech="What's your name?">▶</button><span class="translation">Adın ne?</span></article>
+            <article class="vocab-card coral" data-translation-tr="Merhaba" data-translation-es="Hola"><span class="word-type">GREETING</span><h3>Hello</h3><p>/həˈloʊ/</p><button class="play-word" data-speech="Hello!">▶</button><span class="translation">Merhaba</span></article>
+            <article class="vocab-card lavender" data-translation-tr="Tanıştığıma memnun oldum" data-translation-es="Mucho gusto"><span class="word-type">INTRODUCTION</span><h3>Nice to meet you</h3><p>/naɪs tə miːt juː/</p><button class="play-word" data-speech="Nice to meet you!">▶</button><span class="translation">Tanıştığıma memnun oldum</span></article>
+            <article class="vocab-card mint" data-translation-tr="Adın ne?" data-translation-es="¿Cómo te llamas?"><span class="word-type">QUESTION</span><h3>What’s your name?</h3><p>/wʌts jɔːr neɪm/</p><button class="play-word" data-speech="What's your name?">▶</button><span class="translation">Adın ne?</span></article>
+            <article class="vocab-card coral" data-translation-tr="Teşekkürler" data-translation-es="Gracias"><span class="word-type">POLITE WORD</span><h3>Thank you</h3><p>/θæŋk juː/</p><button class="play-word" data-speech="Thank you!">▶</button><span class="translation">Teşekkürler</span></article>
+            <article class="vocab-card lavender" data-translation-tr="Su, lütfen" data-translation-es="Agua, por favor"><span class="word-type">FOOD & DRINK</span><h3>Water, please</h3><p>/ˈwɔːtər pliːz/</p><button class="play-word" data-speech="Water, please.">▶</button><span class="translation">Su, lütfen</span></article>
+            <article class="vocab-card mint" data-translation-tr="Saat kaç?" data-translation-es="¿Qué hora es?"><span class="word-type">TIME</span><h3>What time is it?</h3><p>/wʌt taɪm ɪz ɪt/</p><button class="play-word" data-speech="What time is it?">▶</button><span class="translation">Saat kaç?</span></article>
           </div>
         </section>
 
