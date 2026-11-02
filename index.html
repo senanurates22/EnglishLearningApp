@@ -118,16 +118,17 @@
         </section>
 
         <section class="practice-row section" id="practice">
-          <div class="practice-copy"><p class="eyebrow">QUICK PRACTICE</p><h2>Can you pick the right answer?</h2><p>Test your memory with one quick question.</p><div class="quiz-progress"><span></span></div><span class="question-count">Question 1 of 3</span></div>
-          <div class="quiz-card" id="quizCard"><p class="quiz-prompt">How do you say <strong>“Merhaba”</strong> in English?</p><div class="quiz-options"><button data-correct="true">Hello</button><button>Goodbye</button><button>Thank you</button></div><p class="quiz-feedback" aria-live="polite"></p></div>
+          <div class="practice-copy"><p class="eyebrow">QUICK PRACTICE</p><h2>Can you pick the right answer?</h2><p>Try a few everyday questions and build your confidence.</p><div class="quiz-progress"><span></span></div><div class="quiz-summary"><span class="question-count">Question 1 of 5</span><strong id="quizScore">0 correct</strong></div></div>
+          <div class="quiz-card" id="quizCard"><div class="quiz-card-top"><span class="quiz-topic" id="quizTopic">Greetings</span><button class="quiz-speak" id="quizSpeak" aria-label="Hear question">🔊</button></div><p class="quiz-prompt" id="quizPrompt">How do you say <strong>“Merhaba”</strong> in English?</p><div class="quiz-options" id="quizOptions"></div><p class="quiz-feedback" id="quizFeedback" aria-live="polite"></p><div class="quiz-footer"><button class="text-button quiz-next hidden" id="quizNext">Next question <span>→</span></button><button class="text-button quiz-reset hidden" id="quizReset">Replay quiz ↻</button></div></div>
         </section>
 
         <section class="conversation-section section" id="conversation">
           <div class="conversation-copy"><p class="eyebrow">PRACTICE OUT LOUD</p><h2>Let’s have a conversation</h2><p>Follow the little dialogue and speak each line out loud. You’re not alone — I’ll guide you.</p><a class="button button-primary" href="#conversationCard">Start conversation <span>→</span></a></div>
           <div class="conversation-card" id="conversationCard">
-            <div class="conversation-top"><span class="online-dot"></span><strong>Alex’s first chat</strong><span class="progress-pill">1 / 4</span></div>
-            <div class="chat"><div class="message bot">Hi there! What’s your name?</div><button class="message user-message speak-message" data-speech="Hi! My name is Alex.">Hi! My name is Alex. <span>🔊</span></button><div class="message bot next-message hidden">Nice to meet you, Alex!</div></div>
-            <button class="button button-light" id="nextConversation">Say your line <span>↗</span></button>
+            <div class="conversation-top"><span class="online-dot"></span><strong>Alex’s first chat</strong><span class="progress-pill" id="conversationProgress">1 / 4</span></div>
+            <div class="chat" id="chatMessages"><div class="message bot" id="conversationPrompt">Hi there! What’s your name?</div><span class="message-translation" id="conversationPromptTranslation">سلام! اسمت چیست؟</span><div class="conversation-options" id="conversationOptions"></div></div>
+            <div class="conversation-status" id="conversationStatus" aria-live="polite">Choose a reply to continue.</div>
+            <button class="button button-light hidden" id="conversationRestart">Practice again ↻</button>
           </div>
         </section>
       </main>
