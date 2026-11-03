@@ -30,6 +30,7 @@
         <div class="top-actions">
           <label class="language-picker" for="languageSelect"><span aria-hidden="true">文</span><select id="languageSelect" aria-label="Choose translation language"><option value="tr">Türkçe</option><option value="es">Español</option><option value="fa">فارسی</option></select></label>
           <button class="icon-button" id="soundToggle" aria-label="Toggle sound" title="Toggle sound">🔊</button>
+          <button class="icon-button" id="settingsToggle" aria-label="Open accessibility settings" title="Accessibility settings">⚙</button>
           <div class="avatar" aria-label="Learner profile">AM</div>
         </div>
       </header>
@@ -112,6 +113,23 @@
           </div>
         </section>
 
+        <section class="section cefr-section" id="levels">
+          <div class="section-heading"><div><p class="eyebrow">YOUR CEFR PATH</p><h2>Grow from A1 to B2</h2></div><span class="lesson-count" id="levelProgressLabel">A1 · 1 / 3 units</span></div>
+          <div class="level-selector" role="tablist" aria-label="CEFR level selector">
+            <button class="level-tab active" data-level="A1" role="tab" aria-selected="true"><strong>A1</strong><small>Starter</small></button>
+            <button class="level-tab locked" data-level="A2" role="tab" aria-selected="false"><strong>A2</strong><small>Elementary</small></button>
+            <button class="level-tab locked" data-level="B1" role="tab" aria-selected="false"><strong>B1</strong><small>Intermediate</small></button>
+            <button class="level-tab locked" data-level="B2" role="tab" aria-selected="false"><strong>B2</strong><small>Upper-intermediate</small></button>
+          </div>
+          <div class="level-path" id="levelPath"></div>
+          <div class="unit-test-card hidden" id="unitTestCard">
+            <div class="unit-test-heading"><div><span class="word-type" id="unitTestLabel">A1 · UNIT 1 TEST</span><h3 id="unitTestQuestion">Choose the correct answer</h3></div><span class="test-score" id="unitTestScore">0 / 3</span></div>
+            <div class="unit-test-options" id="unitTestOptions"></div>
+            <p class="quiz-feedback" id="unitTestFeedback" aria-live="polite"></p>
+            <div class="unit-test-result hidden" id="unitTestResult"></div>
+          </div>
+        </section>
+
         <section class="section" id="vocabulary">
           <div class="section-heading"><div><p class="eyebrow" data-i18n="wordOfDay">WORD OF THE DAY</p><h2 data-i18n="sayWithConfidence">Say it with confidence</h2></div><button class="text-button" id="shuffleWords" data-i18n="exploreWords">Explore words <span>→</span></button></div>
           <div class="vocab-grid">
@@ -138,6 +156,55 @@
             <button class="button button-light hidden" id="conversationRestart">Practice again ↻</button>
           </div>
         </section>
+
+        <section class="section scenario-section" id="scenarios">
+          <div class="section-heading"><div><p class="eyebrow">REAL-LIFE PRACTICE</p><h2>Choose your next conversation</h2></div><span class="lesson-count">5 scenarios</span></div>
+          <div class="scenario-tabs" role="tablist" aria-label="Conversation scenarios">
+            <button class="scenario-tab active" data-scenario="introductions" role="tab" aria-selected="true">👋 Introductions</button>
+            <button class="scenario-tab" data-scenario="food" role="tab" aria-selected="false">🍽️ Order food</button>
+            <button class="scenario-tab" data-scenario="shopping" role="tab" aria-selected="false">🛍️ Shopping</button>
+            <button class="scenario-tab" data-scenario="directions" role="tab" aria-selected="false">🧭 Directions</button>
+            <button class="scenario-tab" data-scenario="work" role="tab" aria-selected="false">💼 Workplace</button>
+          </div>
+          <div class="scenario-card" id="scenarioCard">
+            <div class="scenario-heading"><span class="scenario-icon">👋</span><div><span class="word-type" id="scenarioLabel">INTRODUCTIONS</span><h3 id="scenarioTitle">Meet a new friend</h3></div><button class="quiz-speak" id="scenarioSpeak" aria-label="Hear scenario line">🔊</button></div>
+            <p class="scenario-prompt" id="scenarioPrompt">Hello! Is this your first day here?</p><p class="message-translation" id="scenarioTranslation">سلام! آیا امروز اولین روز تو اینجاست؟</p>
+            <div class="scenario-options" id="scenarioOptions"></div><p class="conversation-status" id="scenarioFeedback" aria-live="polite">Choose a response to practice.</p>
+          </div>
+        </section>
+
+        <section class="section tools-grid" id="progress-tools">
+          <article class="panel goals-panel">
+            <div class="panel-heading"><div><p class="eyebrow">TODAY’S GOALS</p><h2>Keep your momentum</h2></div><span class="target-icon">◎</span></div>
+            <div class="goal-row"><span class="goal-check done">✓</span><div><strong>Complete a lesson</strong><small>5 minutes</small></div><span class="goal-progress">1 / 1</span></div>
+            <div class="goal-row"><span class="goal-check" id="goalPracticeCheck">○</span><div><strong>Practice 5 words</strong><small>Vocabulary review</small></div><span class="goal-progress" id="goalPracticeCount">2 / 5</span></div>
+            <div class="goal-row"><span class="goal-check" id="goalSpeakCheck">○</span><div><strong>Speak out loud</strong><small>Pronunciation practice</small></div><span class="goal-progress">0 / 1</span></div>
+            <div class="milestone"><span>🏅</span><div><strong>Next milestone: 10 day streak</strong><small>3 days to go</small></div><div class="milestone-bar"><i></i></div></div>
+          </article>
+          <article class="panel review-panel" id="review">
+            <div class="panel-heading"><div><p class="eyebrow">SPACED REVIEW</p><h2>Words due today</h2></div><span class="review-count" id="reviewCount">3 cards</span></div>
+            <div class="review-card" id="reviewCard"><span class="word-type" id="reviewType">GREETING</span><h3 id="reviewWord">Hello</h3><p id="reviewMeaning">Merhaba · سلام</p><button class="button button-dark" id="revealReview">Show example <span>→</span></button><p class="review-example hidden" id="reviewExample">Hello! Nice to meet you.</p><div class="review-actions hidden" id="reviewActions"><button data-rating="again">Again</button><button data-rating="good">Good</button><button data-rating="easy">Easy</button></div></div>
+          </article>
+        </section>
+
+        <section class="section pronunciation-section" id="pronunciation">
+          <div class="pronunciation-copy"><p class="eyebrow">PRONUNCIATION COACH</p><h2>Say it, then listen back</h2><p>Record a short phrase and compare your voice with the English model. Your audio stays in this browser.</p><button class="button button-primary" id="recordButton">● Start recording</button><span class="record-status" id="recordStatus" aria-live="polite">Ready when you are.</span></div>
+          <div class="pronunciation-card"><span class="word-type">TRY THIS PHRASE</span><h3 id="pronunciationPhrase">“Could I have some water, please?”</h3><div class="pronunciation-actions"><button class="button button-light" id="pronunciationSpeak">🔊 Hear model</button><audio id="recordingAudio" controls class="hidden"></audio></div><p class="pronunciation-fallback" id="pronunciationFallback"></p></div>
+        </section>
+
+        <section class="section placement-section" id="placement">
+          <div class="placement-copy"><p class="eyebrow">FIND YOUR STARTING POINT</p><h2>Take the 60-second placement check</h2><p>Answer four friendly questions. We’ll suggest a level and a first lesson, without storing a test account.</p><button class="button button-dark" id="placementStart">Start placement test <span>→</span></button></div>
+          <div class="placement-card hidden" id="placementCard"><span class="word-type" id="placementProgress">QUESTION 1 OF 4</span><h3 id="placementQuestion">Choose the correct greeting:</h3><div class="placement-options" id="placementOptions"></div><p class="quiz-feedback" id="placementFeedback" aria-live="polite"></p><div class="placement-result hidden" id="placementResult"></div></div>
+        </section>
+
+        <aside class="settings-panel hidden" id="settingsPanel" aria-label="Accessibility settings">
+          <div class="settings-heading"><div><p class="eyebrow">ACCESSIBILITY</p><h2>Make LingoBloom yours</h2></div><button class="icon-button" id="settingsClose" aria-label="Close settings">×</button></div>
+          <label class="setting-row"><span>Text size</span><select id="textSize"><option value="normal">Normal</option><option value="large">Large</option><option value="xlarge">Extra large</option></select></label>
+          <label class="setting-row"><span>Audio speed</span><select id="audioSpeed"><option value="0.72">Slow</option><option value="0.88">Normal</option><option value="1.05">Fast</option></select></label>
+          <label class="setting-row"><span>High contrast</span><input type="checkbox" id="highContrast" /></label>
+          <label class="setting-row"><span>Reduced motion</span><input type="checkbox" id="reducedMotion" /></label>
+          <label class="setting-row"><span>Show translations & captions</span><input type="checkbox" id="showCaptions" checked /></label>
+        </aside>
       </main>
       <footer><span>Made for curious learners</span><span>Keep blooming ✦</span></footer>
     </div>
