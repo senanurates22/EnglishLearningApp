@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#5935b8" />
+    <meta name="description" content="Learn Persian or Spanish from English with short, beginner-friendly lessons." />
+    <title>Daylight — Learn Persian and Spanish</title>
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="page">
+      <header class="topbar">
+        <a class="brand" id="homeLink" href="#home" aria-label="Daylight home"><span class="brand-icon">d.</span><span>daylight<small id="brandTagline">ENGLISH, ONE DAY AT A TIME</small></span></a>
+        <nav id="mainNavigation" aria-label="Main navigation">
+          <a href="#words" data-i18n="navWords">Words</a><a href="#lessons" data-i18n="navLessons">Lessons</a><a href="#listen" data-i18n="navListening">Listening</a><a href="#speak" data-i18n="navSpeaking">Speaking</a>
+        </nav>
+        <div class="top-controls">
+          <label class="language-picker" for="studyLanguageSelect"><span aria-hidden="true">文</span><span>Learn</span><select id="studyLanguageSelect" aria-label="Choose the language you want to learn"><option value="fa">Persian (فارسی)</option><option value="es">Spanish (Español)</option></select></label>
+          <button class="sound-toggle" id="soundToggle" type="button" aria-pressed="false"><span id="soundLabel">Sound on</span> <span aria-hidden="true">◖</span></button>
+        </div>
+      </header>
+
+      <main>
+        <section class="welcome" id="home">
+          <div class="welcome-copy">
+            <p class="kicker"><span class="live-dot"></span> <span data-i18n="heroKicker">YOUR LANGUAGE LEARNING CORNER</span></p>
+            <h1 id="heroTitle">A fresh start.<br /><span>Every day.</span></h1>
+            <p class="intro" data-i18n="heroIntro">Learn Persian or Spanish from English with short lessons, useful phrases, and a little practice. Go at your own pace.</p>
+            <a class="primary-button" href="#lessons"><span data-i18n="startLesson">Start a lesson</span> <span aria-hidden="true">↗</span></a>
+            <div class="welcome-meta"><span data-i18n="beginnerFriendly">✦ Beginner friendly</span><span data-i18n="minutesADay">◷ 5 minutes a day</span></div>
+          </div>
+          <aside class="today-card" id="todayCard" aria-label="Today’s learning plan">
+            <div class="sun-mark" aria-hidden="true">☀</div>
+            <p class="kicker" data-i18n="todayPlan">YOUR PLAN FOR TODAY</p>
+            <h2 data-i18n="smallStep">One small step is enough.</h2>
+            <div class="plan-row"><span class="plan-number">01</span><span data-i18n="learnTodayWord">Learn today’s word</span><span>✓</span></div>
+            <div class="plan-row"><span class="plan-number">02</span><span data-i18n="tryLesson">Try one short lesson</span><span>→</span></div>
+            <div class="plan-row"><span class="plan-number">03</span><span data-i18n="listenRepeat">Listen and repeat</span><span>→</span></div>
+          </aside>
+        </section>
+
+        <section class="section" id="words">
+          <div class="section-heading">
+            <div><p class="kicker" data-i18n="wordKicker">A WORD TO TAKE WITH YOU</p><h2 data-i18n="todayVocabulary">Today’s vocabulary</h2></div>
+            <p class="date-label" id="todayDate"></p>
+          </div>
+          <p class="translation-note" id="vocabularyNote">Learn useful Persian or Spanish words and phrases with clear English meanings.</p>
+          <p class="audio-status" id="wordAudioFeedback" role="status" aria-live="polite"></p>
+          <div class="word-of-day" id="wordOfDay"></div>
+          <div class="word-grid" id="wordGrid" aria-label="Persian vocabulary with English meanings"></div>
+        </section>
+
+        <section class="section cefr-section" id="cefr">
+          <div class="section-heading">
+            <div><p class="kicker" data-i18n="cefrKicker">YOUR CEFR LEARNING PATH</p><h2 data-i18n="cefrTitle">Learn Persian step by step</h2></div>
+            <p class="section-aside" data-i18n="cefrAside">Pass each lesson quiz to unlock the next step.</p>
+          </div>
+          <div class="cefr-tabs" id="cefrTabs" role="tablist" aria-label="CEFR learning levels"></div>
+          <p class="cefr-overview" id="cefrOverview"></p>
+          <div class="cefr-summary" id="cefrSummary"></div>
+          <div class="cefr-progress-track" aria-label="Level progress"><span id="cefrProgressBar"></span></div>
+        </section>
+
+        <section class="section lesson-section" id="lessons">
+          <div class="section-heading">
+            <div><p class="kicker" data-i18n="lessonKicker">LEARN A LITTLE, USE IT TODAY</p><h2 id="levelLessonsTitle">A1 lessons</h2></div>
+            <p class="section-aside" id="lessonAside"></p>
+          </div>
+          <div class="lesson-list" id="lessonList"></div>
+          <div class="quiz-panel" id="quizPanel" hidden>
+            <div class="quiz-heading"><div><p class="kicker" id="quizLabel">LESSON CHECK</p><h3 id="quizQuestion"></h3></div><span class="quiz-count" id="quizCount"></span></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <p class="feedback" id="quizFeedback" aria-live="polite"></p>
+            <button class="text-button" id="quizNext" type="button" hidden>Next question →</button>
+          </div>
+        </section>
+
+        <section class="section practice-grid">
+          <article class="practice-card listening-card" id="listen">
+            <p class="kicker" data-i18n="listenKicker">TRAIN YOUR EAR</p><h2 data-i18n="listenTitle">Listen and choose</h2>
+            <p data-i18n="listenIntro">Listen to a short phrase in your chosen language. Choose what you heard and replay whenever you want.</p>
+            <button class="primary-button" id="listenButton" type="button">◖ <span data-i18n="playPhrase">Play the phrase</span></button>
+            <div class="listen-options" id="listenOptions"></div>
+            <p class="feedback" id="listenFeedback" aria-live="polite"></p>
+            <button class="text-button" id="listenNext" type="button" hidden><span data-i18n="tryAnother">Try another phrase</span> →</button>
+          </article>
+          <article class="practice-card speaking-card" id="speak">
+            <p class="kicker" data-i18n="speakKicker">SAY IT OUT LOUD</p><h2 data-i18n="speakTitle">Listen. Repeat. Compare.</h2>
+            <p data-i18n="speakIntro">Hear a model in your chosen language, record your voice, then listen back. The app does not score pronunciation.</p>
+            <blockquote><span id="speakText">سلام!</span><button class="play-model" id="speakModel" type="button" aria-label="Hear the example phrase">◖</button></blockquote>
+            <p class="feedback" id="speakFeedback" role="status" aria-live="polite"></p>
+            <button class="primary-button" id="recordButton" type="button"><span data-i18n="recordStart">● Start recording</span></button>
+            <p class="feedback" id="recordStatus" role="status" aria-live="polite">Microphone access is only requested when you start recording.</p>
+            <audio id="playback" controls hidden></audio>
+          </article>
+        </section>
+
+        <section class="section grammar-section" id="grammar">
+          <div class="section-heading"><div><p class="kicker" data-i18n="grammarKicker">GRAMMAR, MADE SMALL</p><h2 data-i18n="grammarTitle">Simple rules you can use</h2></div></div>
+          <p class="translation-note" data-i18n="grammarNote">Learn useful phrases with their English meanings.</p>
+          <div class="grammar-grid">
+            <article><span data-i18n="grammarBeLabel">01 · GREETING</span><h3 data-i18n="grammarBeTitle">Say hello</h3><p data-i18n="grammarBeText">Use this friendly greeting when you meet someone.</p><div class="grammar-example">Hello!<small class="grammar-translation" lang="fa" dir="rtl" data-fa="سلام" data-es="Hola">سلام</small></div></article>
+            <article><span data-i18n="grammarPresentLabel">02 · INTRODUCTION</span><h3 data-i18n="grammarPresentTitle">Share your name</h3><p data-i18n="grammarPresentText">Use this simple phrase to introduce yourself.</p><div class="grammar-example">My name is Alex.<small class="grammar-translation" lang="fa" dir="rtl" data-fa="اسم من الکس است." data-es="Me llamo Alex.">اسم من الکس است.</small></div></article>
+            <article><span data-i18n="grammarPoliteLabel">03 · COURTESY</span><h3 data-i18n="grammarPoliteTitle">Ask politely</h3><p data-i18n="grammarPoliteText">Add “please” to make a request sound friendly.</p><div class="grammar-example">Water, please.<small class="grammar-translation" lang="fa" dir="rtl" data-fa="آب، لطفاً" data-es="Agua, por favor.">آب، لطفاً</small></div></article>
+          </div>
+        </section>
+      </main>
+      <footer><span>daylight <span aria-hidden="true">✳</span></span><span id="footerTagline">A little English, a little every day.</span><span class="install-hint">On your phone: choose “Add to Home Screen” or “Install app” in your browser menu.</span><a href="../" id="originalAppLink">Visit the original app</a></footer>
+    </div>
+  </body>
+</html>
